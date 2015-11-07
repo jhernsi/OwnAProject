@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GameDBModel.Member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+<input type ="button" value ="Get Members" id="btnGetMembers" onclick="GetMembers()" />
+<div id="divMembers">
+
+
+</div>
+
+<script>
+    function GetMembers()
+    {
+        $.getJSON("http://localhost:20000/api/membersdata", function(data)
+        {
+            console.log(data);
+            var str = "";
+            $.each(data, function(key,val)
+            {
+                str = val.FirstName + " " + val.LastName + "<br>";
+
+            });
+
+            document.getElementById("divMembers").innerHTML = str;
+        });
+    
+
+    }
+</script>

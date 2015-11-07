@@ -1,0 +1,16 @@
+﻿@using WorkingWithMVC.Models;
+@model IEnumerable<WorkingWithMVC.Models.Student>
+
+@{
+    ViewBag.Title = "Action5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Action5</h2>
+
+@foreach (Student s in Model)
+{
+    @s.FirstName @s.LastName
+    <br />
+}
+

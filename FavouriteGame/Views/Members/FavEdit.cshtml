@@ -1,0 +1,28 @@
+﻿@model GameDBModel.MemberWithFavGames
+
+@{
+    ViewBag.Title = "FavEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>FavEdit</h2>
+
+@using (Html.BeginForm())
+{ 
+@Model.ID
+@Model.Member.FirstName
+@Model.Member.LastName
+
+
+    @Html.HiddenFor(m => Model.ID)
+    @Model.ID @Model.Member.FirstName @Model.Member.LastName
+    foreach (var fg in Model.FavGames)
+    {
+
+    <br />
+    @Html.EditorFor(f => fg.isFav)
+    @fg.isFav @fg.Game.Title
+    <br/>
+}
+    <input type="submit" value="Save Fav.Games." />
+}

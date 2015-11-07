@@ -1,0 +1,17 @@
+﻿@using WorkingWithMVC.Models;
+
+@{
+    ViewBag.Title = "Action 3 - Construct Model in View - Really a Bad Idea";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    Student s = new Student() { FirstName="Amandeep" , LastName = "Patti"};    
+    
+    
+}
+
+<h2>Action3</h2>
+@s.FirstName @s.LastName
+<br />
+@s.Name
+
+

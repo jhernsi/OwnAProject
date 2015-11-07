@@ -1,0 +1,31 @@
+﻿@model GameDBModel.Game
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(Model =>Model.Id)
+    <table>
+        <tr>
+            <td>@Html.LabelFor(m=>Model.Title)</td>
+            <td>:</td>
+            <td>@Html.EditorFor(m=>Model.Title)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m=>Model.Platform)</td>
+            <td>:</td>
+            <td>@Html.EditorFor(m=>Model.Platform)</td>
+        </tr>
+
+
+
+    </table>
+    
+    
+    <input type="submit" value="Save Changes" />
+}

@@ -1,0 +1,29 @@
+﻿@using GameDBModel
+@model Game
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Game</h2>
+
+@using (Html.BeginForm())
+{
+<table>
+    <tr>
+        <td>@Html.LabelFor(model => model.Title)</td>
+        <td>@Html.EditorFor(model=>model.Title)</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(model => model.Platform)</td>
+        <td>@Html.EditorFor(model=>model.Platform)</td>
+        <td></td>
+    </tr>
+</table>
+<input type="submit" />    
+    
+}
+
+

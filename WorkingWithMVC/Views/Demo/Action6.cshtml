@@ -1,0 +1,25 @@
+﻿@using WorkingWithMVC.Models;
+
+@model WorkingWithMVC.Models.BookDemandVM
+
+@{
+    ViewBag.Title = "Action6";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Student s = Model.Student;
+    IEnumerable<Book> books = Model.Books;    
+    
+}
+
+<h2>Action6</h2>
+@*@Model.Book.Title @Model.Book.Author
+@Model.Student.FirstName @Model.Student.LastName*@
+
+@s.FirstName @s.LastName
+
+<br />
+@foreach (Book b in books)
+{ 
+
+@b.Title @b.Author
+    <br />
+}
